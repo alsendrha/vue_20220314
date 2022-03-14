@@ -1,26 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <button @click="handleMenu('home')">home</button>
+    <button @click="handleMenu('login')">login</button>
+    <button @click="handleMenu('join')">join</button>
+    <button @click="handleMenu('mypage')">mypage</button>
+    <hr />
+
+    <router-view></router-view>
+
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import {useRouter} from 'vue-router';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  setup () {
+    const router = new useRouter();
+    const handleMenu = (menu) => {
+      console.log('App.vue => handleMenu =>', menu)
+      router.push(menu);
+
+    }
+    
+    return {handleMenu}
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss" scoped>
+
 </style>
