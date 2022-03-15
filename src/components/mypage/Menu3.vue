@@ -1,6 +1,6 @@
 <template>
     <div>
-
+        <h3>회원탈퇴</h3>
     </div>
 </template>
 

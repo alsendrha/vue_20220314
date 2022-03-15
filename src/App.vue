@@ -2,7 +2,7 @@
   <div>
     <button @click="handleMenu('home')">home</button>
     <button v-if="!logged" @click="handleMenu('login')">login</button>
-    <button v-if="!logged" @click="handleMenu('Logout')">logout</button>
+    <button v-if="logged" @click="handleMenu('Logout')">logout</button>
     <button v-if="logged === false" @click="handleMenu('join')">join</button>
     <button v-if="logged === true" @click="handleMenu('mypage')">mypage</button>
     <hr />
