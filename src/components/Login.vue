@@ -1,6 +1,5 @@
 <template>
     <div>
-        <hr />
         <h3>로그인</h3>
         아이디 : <input type="text" ref="userid" v-model="state.userid" /><br />
         암호 : <input type="password" ref="userpw" v-model="state.userpw" /><br />

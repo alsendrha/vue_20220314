@@ -5,6 +5,7 @@
     <button v-if="logged" @click="handleMenu('Logout')">logout</button>
     <button v-if="logged === false" @click="handleMenu('join')">join</button>
     <button v-if="logged === true" @click="handleMenu('mypage')">mypage</button>
+    <button  @click="handleMenu('chat')">chat</button>
     <hr />
 
     <router-view></router-view>

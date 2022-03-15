@@ -5,6 +5,7 @@ import Login from '@/components/Login';
 import Logout from '@/components/Logout';
 import Join from '@/components/Join';
 import Mypage from '@/components/Mypage';
+import Chat from '@/components/Chat';
 
 const routes = [
     { path : '/', redirect:'home'},
@@ -13,6 +14,7 @@ const routes = [
     { path : '/logout', name:'Logout', component:Logout},
     { path : '/join', name:'Join', component:Join},
     { path : '/mypage', name:'Mypage', component:Mypage},
+    { path : '/chat', name:'Chat', component:Chat},
 ]
 
 const router = createRouter(

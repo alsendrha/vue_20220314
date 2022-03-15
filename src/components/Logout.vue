@@ -15,7 +15,6 @@ export default {
 
         onMounted(() => {
             sessionStorage.removeItem("TOKEN");
-            alert('로그아웃 되었습니다.');
             store.commit('setLogged', false);
             router.push({name : 'Home'});
 
