@@ -164,7 +164,6 @@ export default {
                 alert('가입되었습니다.');
                 router.push({name : 'Home'});
             }
-
         }
 
         return {state, userid, userpw, userpw1, username, useremail, useremail2, userage,  handleHome, handleCheck, handleJoin}

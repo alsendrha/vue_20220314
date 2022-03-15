@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 import Home from '@/components/Home';
 import Login from '@/components/Login';
+import Logout from '@/components/Logout';
 import Join from '@/components/Join';
 import Mypage from '@/components/Mypage';
 
@@ -9,6 +10,7 @@ const routes = [
     { path : '/', redirect:'home'},
     { path : '/home', name:'Home', component:Home},
     { path : '/login', name:'Login', component:Login},
+    { path : '/logout', name:'Logout', component:Logout},
     { path : '/join', name:'Join', component:Join},
     { path : '/mypage', name:'Mypage', component:Mypage},
 ]
