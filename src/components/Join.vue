@@ -58,7 +58,7 @@ import axios from 'axios';
 export default {
     setup () {
 
-        const router = new useRouter;
+        const router = useRouter();
 
         const state = reactive({
             userid : '',
@@ -162,7 +162,7 @@ export default {
             console.log(response.data);
             if(response.data.status === 200){
                 alert('가입되었습니다.');
-                router.push({name : 'Home'});
+                router.push({name : 'Login'});
             }
         }
 

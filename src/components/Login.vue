@@ -14,7 +14,7 @@ import {useRouter} from 'vue-router';
 import {useStore} from 'vuex';
 export default {
     setup () {
-        const router = new useRouter;
+        const router = useRouter();
         const store = useStore();
 
         const state = reactive({

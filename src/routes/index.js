@@ -6,6 +6,8 @@ import Logout from '@/components/Logout';
 import Join from '@/components/Join';
 import Mypage from '@/components/Mypage';
 import Chat from '@/components/Chat';
+import Item from '@/components/Item';
+import Admin from '@/components/Admin';
 
 const routes = [
     { path : '/', redirect:'home'},
@@ -15,6 +17,8 @@ const routes = [
     { path : '/join', name:'Join', component:Join},
     { path : '/mypage', name:'Mypage', component:Mypage},
     { path : '/chat', name:'Chat', component:Chat},
+    { path : '/item', name:'Item', component:Item},
+    { path : '/admin', name:'Admin', component:Admin},
 ]
 
 const router = createRouter(

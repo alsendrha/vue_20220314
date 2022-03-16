@@ -6,6 +6,8 @@
     <button v-if="logged === false" @click="handleMenu('join')">join</button>
     <button v-if="logged === true" @click="handleMenu('mypage')">mypage</button>
     <button  @click="handleMenu('chat')">chat</button>
+    <button  @click="handleMenu('item')">item</button>
+    <button  @click="handleMenu('admin')">admin</button>
     <hr />
 
     <router-view></router-view>
@@ -20,7 +22,7 @@ import {useStore} from 'vuex';
 
 export default {
   setup () {
-    const router = new useRouter();
+    const router = useRouter();
     const store = useStore();
 
     // stores의 getters 호출
