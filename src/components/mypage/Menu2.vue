@@ -24,18 +24,37 @@
 
 <script>
 import { reactive } from 'vue'
+import axios from 'axios';
 export default {
     setup () {
         const state = reactive({
-            pw : '',
-            pw1 : '',
-            pw2 : '',
+            token : sessionStorage.getItem("TOKEN")
 
         });
 
         const handleUpdate = async() => {
-            
+            const url = `/member/updatepw`;
+            const headers = {"Content=Type":"application/json", "auth":state.token};
+            const body = {
+                pw : state.pw,
+                pw1 : state.pw1
+            }
+            const response = await axios.put(url, body, {headers});
+            console.log(response.data);
+            if(response.data.status===200){
+                alert('수정되었습니다.');
+            }
         }
+
+        // onMounted(() => {
+        //     handleData();
+        // })
+
+        // const handleData = async() => {
+        //     const url = `/member/selectonepw`
+        //     const headers = {"Content-Type":"application/json", "auth":state.token};
+
+        // }
         
 
         return {state, handleUpdate}

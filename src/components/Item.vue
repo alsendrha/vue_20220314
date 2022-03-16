@@ -40,10 +40,15 @@
 </template>
 
 <script>
-import { reactive, onMounted } from 'vue'
+import { reactive, onMounted, getCurrentInstance } from '@vue/runtime-core'
 import axios from 'axios';
 export default {
     setup () {
+        // main.js에 등록했던 변수 가져오기
+        const app = getCurrentInstance();
+        const socket = app.appContext.config.globalProperties.$socket;
+        console.log(socket);
+
         const state = reactive({
             code : '',
             name : '',
@@ -82,8 +87,9 @@ export default {
             const response = await axios.post(url, body, {headers});
             console.log(response.data);
             if(response.data.status === 200){
-                alert('등록되었습니다');
-                handleData();
+                // 이 위치에서 등록했음을 통지
+                socket.emit('publish', {data : {userid : 'aaa', username : 'insert'}});
+                handleData(); // 목록에서 가져와서 state.items에 추가
             }
         }
         

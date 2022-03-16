@@ -26,17 +26,26 @@
 </template>
 
 <script>
-import { reactive } from '@vue/reactivity'
-import { onMounted } from '@vue/runtime-core';
+import { reactive, onMounted, getCurrentInstance } from '@vue/runtime-core'
 import axios from 'axios';
 export default {
     setup () {
+        const app = getCurrentInstance();
+        const socket = app.appContext.config.globalProperties.$socket;
+        console.log(socket);
+
         const state = reactive({
      
         });
         
         onMounted(() => {
             handleData();
+            socket.on('subscribe', (recv) => {
+                console.log(recv);
+                if(recv.username === 'insert'){
+                    handleData();
+                }
+            });
         });
 
         const handleData = async() => {

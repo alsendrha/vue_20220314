@@ -8,6 +8,7 @@
     <button  @click="handleMenu('chat')">chat</button>
     <button  @click="handleMenu('item')">item</button>
     <button  @click="handleMenu('admin')">admin</button>
+    <button  @click="handleMenu('admin1')">admin1</button>
     <hr />
 
     <router-view></router-view>
