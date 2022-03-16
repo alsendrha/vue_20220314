@@ -20,18 +20,29 @@ export default {
     setup () {
         const router = new useRouter;
         const state = reactive({
+            pw : '',
             token : sessionStorage.getItem("TOKEN")
         });
 
         const handleDelete = async() => {
             if(confirm('탈퇴할까요?')){
+                if(state.pw.length <= 0){
+                    alert('암호를 입력해주세요')
+                    return false;
+                }
                 const url = `/member/delete`;
                 const headers = {"Content-Type":"application/json","auth":state.token};
-                const response = await axios.delete(url, {headers, data:{}});
+                const body = {
+                    pw : state.pw
+                }
+                const response = await axios.delete(url, {headers, data:body});
                 console.log(response.data);
                 if(response.data.status === 200){
                     alert('탈퇴되었습니다.');
                     router.push({name:'Logout'});
+                }
+                else{
+                    alert('암호가 틀렸습니다');
                 }
             }
         }

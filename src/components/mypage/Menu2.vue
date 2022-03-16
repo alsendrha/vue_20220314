@@ -77,6 +77,10 @@ export default {
                 state.newpw = '';
                 state.newpw1 = '';
             }
+            else{
+                alert('암호가 틀렸습니다');
+                pw.value.focus();
+            }
         }
 
 
