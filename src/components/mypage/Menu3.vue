@@ -4,7 +4,7 @@
         <el-card>
             <el-form :inline="true"  >
                 <el-form-item  label="암호" label-width="80px">
-                    <el-input  size="mini" type="password" v-model="state.pw" placeholder="암호" />
+                    <el-input  size="mini" ref="pw" type="password" v-model="state.pw" placeholder="암호" @keydown.prevent.enter="handleDelete"/>
                 </el-form-item>
             </el-form>
             <el-button type="primary" style="margin-left:80px" size="mini" round @click="handleDelete" >탈퇴하기</el-button>
@@ -13,21 +13,25 @@
 </template>
 
 <script>
-import { reactive } from 'vue'
+import { reactive, ref} from 'vue'
 import axios from 'axios';
 import {useRouter} from 'vue-router';
 export default {
     setup () {
+
         const router = new useRouter;
         const state = reactive({
             pw : '',
             token : sessionStorage.getItem("TOKEN")
         });
 
+        const pw = ref(null);
+
         const handleDelete = async() => {
             if(confirm('탈퇴할까요?')){
                 if(state.pw.length <= 0){
                     alert('암호를 입력해주세요')
+                    pw.value.focus();
                     return false;
                 }
                 const url = `/member/delete`;
@@ -48,7 +52,7 @@ export default {
         }
         
 
-        return {state, handleDelete}
+        return {state, pw, handleDelete}
     }
 }
 </script>
